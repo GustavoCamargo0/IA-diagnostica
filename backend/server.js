@@ -15,11 +15,9 @@ app.post("/perguntar", async (req, res) => {
   const { prompt } = req.body;
 
   if (!prompt) {
-    return res
-      .status(400)
-      .json({
-        error: 'O campo "prompt" é obrigatório no corpo da requisição.',
-      });
+    return res.status(400).json({
+      error: 'O campo "prompt" é obrigatório no corpo da requisição.',
+    });
   }
 
   try {
@@ -66,7 +64,7 @@ Responda como se fosse um Engenheiro de Manutenção Sênior.
 
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-3.6-flash",
       contents: prompt,
     });
 
